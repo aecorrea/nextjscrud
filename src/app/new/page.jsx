@@ -72,32 +72,31 @@ const NewPage = ({ params }) => {
           onChange={(e) => setDescription(e.target.value)}
           value={description}
         />
-          <div className="flex justify-between">
-
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded
+        <div className="flex justify-between">
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded
           "
           >
-          Crear
-        </button>
-        {params.id && (
-          <button
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
-          type="button"
-          onClick={async() => {
-           const res= await fetch(`/api/tasks/${params.id}`, {
-              method: "DELETE",
-            });
-            const data = await res.json();
-            console.log(data)
-            router.refresh();
-            router.push("/");
-          }}
-          >
-            Delete
+            Crear
           </button>
-        )}
+          {params.id && (
+            <button
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
+              type="button"
+              onClick={async () => {
+                const res = await fetch(`/api/tasks/${params.id}`, {
+                  method: "DELETE",
+                });
+                const data = await res.json();
+                console.log(data);
+                router.refresh();
+                router.push("/");
+              }}
+            >
+              Delete
+            </button>
+          )}
         </div>
       </form>
     </div>

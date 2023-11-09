@@ -13,6 +13,13 @@ const loadTask = async () => {
   //(Mejor usar cuando el back está en el mismo proyecto)
   return await prisma.task.findMany();
 };
+
+//Propiedad nos permite colocar un número. Cada {número} segundos se va a modificar.
+// export const revalidate = 60;
+
+//Propiedad para que se modifique cada vez que hay un cambio.
+export const dynamic = "force-dynamic";
+
 const HomePage = async () => {
   const tasks = await loadTask();
   console.log(tasks);
